@@ -1,0 +1,63 @@
+https://www.kaggle.com/datasets/abhishekgupta56447/steam-games-dataset-2025/data
+
+Passo 1:
+Descrição da Base de Dados
+O dataset "Steam Games Dataset 2025" apresenta uma perspectiva detalhada de mais de 263 mil aplicações, incluindo jogos e DLCs, disponíveis na plataforma Steam até janeiro de 2025. Essa base é rica em variáveis comerciais e de metadados, com informações fundamentais como preços atuais, status de desconto, gêneros, tags, estúdios desenvolvedores e datas de lançamento. Para fins de Análise Exploratória (EDA), o conjunto de dados é bastante promissor, pois possibilita a extração de métricas centrais e dispersão sobre os valores dos jogos, a construção de histogramas para entender a distribuição de preços (que costuma ter caudas longas e outliers notáveis), e a investigação de correlações entre categorias específicas e estratégias de precificação no mercado contemporâneo de jogos para PC.
+
+
+
+Passo 3:
+Típico vs Previsível
+A tendência central (média e mediana) nos mostra o que é típico nos preços e descontos, enquanto a variabilidade (variância e desvio-padrão amostral) responde quão previsíveis esses dados são. A média pode enganar por ser sensível a valores extremos, enquanto a mediana é o centro robusto, ideal para quando há cauda longa.
+Interpretação de Preços:
+Ao analisarmos a média de preços da Steam, o número pode parecer ok no relatório (um valor acessível), mas a variabilidade (um desvio-padrão amostral muito alto) indica forte instabilidade e dispersão. Isso ocorre porque a presença de outliers (jogos excessivamente caros) infla o desvio-padrão (que dá mais peso aos picos por usar o quadrado dos desvios), tornando os preços da loja altamente imprevisíveis se olharmos apenas para a média.
+
+
+Passo 4:
+
+É simétrico ou assimétrico? Qual cauda?
+O histograma de preços se apresenta de forma assimétrica à direita, possuindo uma cauda longa de valores altos.
+
+Há outliers?
+Sim. O histograma revela pontos extremos e isolados à direita (outliers), que representam jogos com preços muito fora do padrão do conjunto, distorcendo a média.
+
+Parece ter dois perfis (bimodalidade)?
+Sim, ao removermos o ruído visual dos outliers extremos, os gráficos revelam uma multimodalidade acentuada, comprovando a mistura de perfis distintos de produtos na base.
+No caso dos Descontos, não há uma distribuição contínua, mas sim picos massivos em valores promocionais específicos (como 50%, 75% e 20%), indicando perfis tabelados de marketing.
+No caso dos Preços, o gráfico apresenta um padrão serrilhado, evidenciando a mistura de perfis como jogos gratuitos (pico no zero) e faixas de preços psicológicos ou tabelados padrão da indústria (picos subsequentes)."
+
+Reportaria média ou mediana? Por quê?
+Nós reportaríamos a mediana. Como a distribuição possui cauda longa à direita e presença clara de outliers, a média é enviesada. A mediana é a medida robusta correta para reportar o preço típico neste cenário.
+
+
+
+Passo 5:
+o que sugere?
+
+Para o primeiro par (Preço vs Desconto), a correlação de Pearson é próxima de zero e o scatterplot exibe uma nuvem dispersa, sugerindo a ausência de uma relação linear forte, ou seja, jogos mais caros não recebem necessariamente descontos maiores. Para o segundo par (Preço vs Recomendações), a correlação também é extremamente fraca. O scatterplot sugere que cobrar um preço mais alto no lançamento não garante um volume maior de recomendações por parte dos usuários, indicando que a popularidade de um jogo na Steam é impulsionada por fatores além do seu valor financeiro.
+
+Passo 6:
+
+Para a análise de outliers (os pontos fora da curva), a coluna escolhida foi o Preço Inicial (mat_initial_price), porque era a que estava com os valores mais distorcidos. Quando geramos o primeiro gráfico de boxplot, a caixa principal ficou completamente esmagada num canto por causa de preços absurdamente altos.
+
+Usando a fórmula matemática do IQR (Limites de Tukey), conseguimos calcular qual seria o limite máximo de preço aceitável e identificamos milhares de jogos acima desse teto. Depois de aplicarmos um filtro no código para esconder esses valores extremos, o segundo gráfico finalmente conseguiu mostrar o cenário real da loja.
+
+Isso era erro, caso raro real ou mistura de perfis?
+Concluímos que é uma mistura dos três fatores.
+Casos raros reais: Os valores que ultrapassam apenas um pouco o limite podem ser softwares de edição ou pacotes Deluxe que realmente são mais caros.
+Mistura de perfis: A loja vende de tudo no mesmo lugar, juntando joguinhos gratuitos e grandes lançamentos famosos.
+Erros: Já os valores mais absurdos (jogos custando dezenas de milhares de reais) são claramente erros de digitação na hora do cadastro ou preços colocados de brincadeira pelos desenvolvedores.
+
+
+
+Declaração de Uso de IA
+
+IA usada? Sim (Gemini).
+
+Para quê:
+
+Debug e Erros: Auxílio na interpretação e resolução de erros de console apresentados pelo Pandas durante a importação e limpeza do dataset applications.csv (ex: KeyError em colunas ausentes e DtypeWarning).
+
+Dúvidas de Sintaxe: Consulta sobre a sintaxe correta da biblioteca matplotlib para formatação visual dos gráficos (ex: parâmetros de cor e orientação dos boxplots) e aplicação de máscaras lógicas (filtros) em DataFrames.
+
+Explicação de Conceitos: Apoio para compreender teoricamente o comportamento de visualização dos histogramas quando submetidos a uma alta concentração de outliers extremos (cauda longa).

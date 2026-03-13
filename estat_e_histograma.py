@@ -28,7 +28,8 @@ print("DP amostral:", dp_amostral)
 
 
 plt.hist(s[s < 10000], bins="auto", edgecolor='black')
-plt.title("Histograma: Preços de Lançamento")
+plt.title("Histograma: Preço inicial")
+plt.xlabel("% Desconto")
 plt.xlabel("Preço inicial")
 plt.ylabel("Frequência")
 plt.show()

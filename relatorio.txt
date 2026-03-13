@@ -34,8 +34,7 @@ Nós reportaríamos a mediana. Como a distribuição possui cauda longa à direi
 Passo 5:
 o que sugere?
 
-Para o primeiro par (Preço vs Desconto), a correlação de Pearson é próxima de zero e o scatterplot exibe uma nuvem dispersa, sugerindo a ausência de uma relação linear forte, ou seja, jogos mais caros não recebem necessariamente descontos maiores. Para o segundo par (Preço vs Recomendações), a correlação também é extremamente fraca. O scatterplot sugere que cobrar um preço mais alto no lançamento não garante um volume maior de recomendações por parte dos usuários, indicando que a popularidade de um jogo na Steam é impulsionada por fatores além do seu valor financeiro.
-
+Para o primeiro par (Preço vs Desconto), a correlação de Pearson é próxima de zero e o scatterplot exibe uma nuvem dispersa, sugerindo a ausência de uma relação linear forte, ou seja, jogos mais caros não recebem necessariamente descontos maiores. Para o segundo par (Crítica vs Recomendações), a correlação também se mostra fraca. O scatterplot sugere que ter uma nota alta da crítica especializada (Metacritic) não garante um volume gigante de recomendações por parte dos usuários, indicando que a popularidade massiva de um jogo na Steam é impulsionada por fatores que vão além da sua excelência técnica ou aclamação crítica.
 Passo 6:
 
 Para a análise de outliers (os pontos fora da curva), a coluna escolhida foi o Preço Inicial (mat_initial_price), porque era a que estava com os valores mais distorcidos. Quando geramos o primeiro gráfico de boxplot, a caixa principal ficou completamente esmagada num canto por causa de preços absurdamente altos.

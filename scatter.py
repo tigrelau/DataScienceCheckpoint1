@@ -20,16 +20,16 @@ plt.show()
 plt.show()
 
 
-print("Preço x Recomendações")
-df_par2 = df.dropna(subset=['mat_initial_price', 'recommendations_total'])
-x2 = df_par2['mat_initial_price']
+print("Crítica x Recomendações")
+df_par2 = df.dropna(subset=['metacritic_score', 'recommendations_total'])
+x2 = df_par2['metacritic_score']
 y2 = df_par2['recommendations_total']
 
 corr2 = x2.corr(y2)
 print("Correlação de Pearson (Par 2):", corr2)
 
 plt.scatter(x2, y2, alpha=0.5)
-plt.title("Scatterplot: Preço vs Recomendações")
-plt.xlabel("Preço inicial")
+plt.title("Scatterplot: Crítica vs Recomendações")
+plt.xlabel("Crítica")
 plt.ylabel("Recomendações")
 plt.show()

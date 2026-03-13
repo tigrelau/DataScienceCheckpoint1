@@ -16,7 +16,7 @@ Projeto desenvolvido como parte do módulo de Data Science e Estatística do cur
 Devido ao limite de tamanho de arquivos do GitHub (100MB), o arquivo de dados bruto não está incluso neste repositório.
 
 * **Fonte dos Dados:** [Steam Games Dataset 2025 (Kaggle)](https://www.kaggle.com/datasets/abhishekgupta56447/steam-games-dataset-2025/data)
-* **Arquivo necessário:** `applications.csv` (171.74 MB)
+* **Arquivo necessário:** `applications.csv`
 
 Para executar os scripts, baixe o arquivo no link acima e coloque-o na pasta raiz do projeto.
 
